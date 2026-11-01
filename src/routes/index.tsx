@@ -1,24 +1,50 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Hero, Experience, Why, Pillars, Impact, LegacyKit, Testimonials } from "@/components/landing/SectionsTop";
+import {
+  Platform,
+  BetterWay,
+  FourWays,
+  ImpactStats,
+  KitInvite,
+  RealStories,
+  FaqBlog,
+  Articles,
+  CtaFooter,
+} from "@/components/landing/SectionsBottom";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "KinnectAI — Your family's story deserves a place to live" },
+      { name: "description", content: "A private space to discover, connect, capture, and preserve the moments that bring generations together." },
+      { property: "og:title", content: "KinnectAI — Your family's story deserves a place to live" },
+      { property: "og:description", content: "A private, ad-free home for your family's photos, stories and history." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main className="bg-background">
+      <Hero />
+      <Experience />
+      <Why />
+      <Pillars />
+      <Impact />
+      <LegacyKit />
+      <Testimonials />
+      <Platform />
+      <BetterWay />
+      <FourWays />
+      <ImpactStats />
+      <KitInvite />
+      <RealStories />
+      <FaqBlog />
+      <Articles />
+      <CtaFooter />
+    </main>
   );
 }
